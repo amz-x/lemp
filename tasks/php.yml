@@ -1,0 +1,7 @@
+---
+
+
+- name: install php packages
+  package:
+    name: "{{ php_packages }}"
+    state: present

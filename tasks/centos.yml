@@ -1,0 +1,36 @@
+---
+- name: install repo epel
+  become: true
+  yum:
+    name: '{{ repo_epel_url }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: import repo epel key
+  become: true
+  rpm_key:
+    key: '{{ repo_epel_key }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: install repo remi
+  become: true
+  yum:
+    name: '{{ repo_remi_url }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: import repo remi key
+  become: true
+  rpm_key:
+    key: '{{ repo_remi_key }}'
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: install yum-utils
+  become: true
+  package:
+    name: yum-utils
+    state: present
+  notify: change php version
+  when: ansible_distribution == 'CentOS'

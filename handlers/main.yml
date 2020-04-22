@@ -1,0 +1,23 @@
+---
+- name: install all updates
+  package:
+    name: '*'
+    state: present
+
+- name: change php version
+  command: 'yum-config-manager --enable remi-php{{ php_version }}'
+  notify: install all updates
+  when: ansible_distribution == 'CentOS'
+
+- name: restart webserver
+  service:
+    name: '{{ php_webserver }}'
+    state: restarted
+  notify: restart php-fpm
+  when: php_webserver is defined
+
+- name: restart php-fpm
+  service:
+    name: php-fpm
+    state: restarted
+    enabled: true

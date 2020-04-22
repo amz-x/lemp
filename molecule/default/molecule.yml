@@ -1,0 +1,23 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: podman
+lint:
+  name: yamllint
+  options: 
+    config-data:
+      ignore: .env
+platforms:
+  - name: instance
+    image: centos:7
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  options:
+    vvv: True
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

@@ -1,0 +1,30 @@
+---
+php_version: '74'
+php_webserver: 'nginx'
+php_packages:
+  - php
+  - php-cli
+  - php-common
+  # - php-mcrypt
+  - php-tidy
+  - php-mysql
+  - php-gd
+  - php-imap
+  - php-mbstring
+  - php-odbc
+  - php-pear
+  - php-intl
+  - php-soap
+  - php-xml
+  - php-xmlrpc
+  - php-pecl-apcu
+  - php-pecl-imagick
+  - php-fpm
+
+repo_epel_url:  https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm'
+repo_epel_key: 'https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}'
+
+repo_remi_url: 'https://rpms.remirepo.net/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm'
+repo_remi_key: 'https://rpms.remirepo.net/RPM-GPG-KEY-remi'
+
+
