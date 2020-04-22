@@ -22,4 +22,4 @@ jobs:
     - name: Run Molecule Tests
       run: |
         source .env/bin/activate
-        molecule test --destroy=never
+        molecule test
